@@ -1,0 +1,54 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Welcome</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>A health system, health care system or healthcare system is an organization of people, institutions, and
+            resources that delivers health care services to meet the health needs of target populations.
+            There is a wide variety of health systems around the world, with as many histories and organizational
+            structures as there are nations. Implicitly, nations must design and develop health systems in accordance
+            with their needs and resources, although common elements in virtually all health systems are primary
+            healthcare and public health measures.</div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+          <div>Often health system has been defined with a reductionist perspective. Some have developed arguments to
+            expand the concept of health systems, indicating additional dimensions that should be considered:
+            Health systems should not be expressed in terms of their components only, but also of their
+            interrelationships;
+            Health systems should include not only the institutional or supply side of the health system but also the
+            population;
+            Health systems must be seen in terms of their goals, which include not only health improvement, but also
+            equity, responsiveness to legitimate expectations, respect of dignity, and fair financing, among others;
+            Health systems must also be defined in terms of their functions, including the direct provision of services,
+            whether they are medical or public health services, but also "other enabling functions, such as stewardship,
+            financing, and resource generation, including what is probably the most complex of all challenges, the
+            health workforce."</div>
+        </mat-card-header>
+      </mat-card>
+      <mat-card>
+      <mat-card-content class="definitions">
+
+
+      </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

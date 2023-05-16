@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <mat-card class="usercard">
+    <mat-form-field appearance="fill" class="name-field">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name" (keyup)="checkDisabled()">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="gender-field">
+      <mat-label>Gender</mat-label>
+      <mat-select [(ngModel)]="gender" (selectionChange)="checkDisabled()">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Others">Others</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="accent" [disabled]="isDisabled"
+    (click)="editUser()" data="Edit">
+      Edit
+    </button>
+  </mat-card>
+</div>
