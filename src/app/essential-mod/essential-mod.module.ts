@@ -19,42 +19,49 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule, Routes } from '@angular/router';
 import { MainNavComponent } from '../components/main-nav/main-nav.component';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatStepperModule } from '@angular/material/stepper';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { UsereditComponent } from '../components/admin/user-edit/user-edit.component';
 
-const mainRoutes:Routes=[
-  {path:'' ,component:LoginComponent},
-  {path:'admin',loadChildren:()=>
-  import('../components/admin/admin-main/admin-main.module').
-  then(admin=>admin.AdminMainModule)},
-  {path:'user',loadChildren:()=>
-  import('../components/user/user-main/user-main.module').
-  then(user=>user.UserMainModule)
+const mainRoutes: Routes = [
+  { path: '', component: LoginComponent },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('../components/admin/admin-main/admin-main.module').then(
+        (admin) => admin.AdminMainModule
+      ),
   },
-  {path:'logout', component:LogoutComponent},
-  {path:'useredit', component:UsereditComponent},
-  {path:'appointment', component:AppointmentsComponent},
-  {path:'no-page-found', component:NoPageFoundComponent},
-  {path:'**', redirectTo:'no-page-found'},
-]
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('../components/user/user-main/user-main.module').then(
+        (user) => user.UserMainModule
+      ),
+  },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'useredit', component: UsereditComponent },
+  { path: 'appointment', component: AppointmentsComponent },
+  { path: 'no-page-found', component: NoPageFoundComponent },
+  { path: '**', redirectTo: 'no-page-found' },
+];
 
-const modules=[
+const modules = [
   CommonModule,
   AppAdminRoutingModule,
   AppUserRoutingModule,
   BrowserAnimationsModule,
-  FlexLayoutModule,
+  FlexLayoutModule.withConfig({ addFlexToParent: false }),
   MatGridListModule,
   MatCardModule,
   MatMenuModule,
@@ -69,14 +76,10 @@ const modules=[
   MatInputModule,
   MatNativeDateModule,
   MatMomentDateModule,
-  FlatpickrModule
-]
+  FlatpickrModule,
+];
 @NgModule({
-  declarations: [
-    NoPageFoundComponent,
-    LoginComponent,
-    MainNavComponent
-  ],
+  declarations: [NoPageFoundComponent, LoginComponent, MainNavComponent],
   imports: [
     ...modules,
     CalendarModule.forRoot({
@@ -85,15 +88,9 @@ const modules=[
     }),
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(mainRoutes)
+    RouterModule.forRoot(mainRoutes),
   ],
-  exports:[
-    ...modules,
-    NoPageFoundComponent,
-    MainNavComponent
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  exports: [...modules, NoPageFoundComponent, MainNavComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class EssentialModModule { }
+export class EssentialModModule {}
