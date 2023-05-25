@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from '../../services/user.service';
 import { UsereditComponent } from '../user-edit/user-edit.component';
 
 export interface userType {
