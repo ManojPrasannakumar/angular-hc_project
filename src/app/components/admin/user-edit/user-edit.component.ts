@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UserService, userType } from '../../services/user.service';
+import { userType } from '../all-users/all-users.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-edit',

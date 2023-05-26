@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminMainComponent } from './admin-main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppUserRoutingModule } from 'src/app/routes/app-user-routing.module';
+import { AppUserRoutingModule } from '../../routes/app-user-routing.module';
 import { AllUsersComponent } from '../all-users/all-users.component';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { AppointmentsComponent } from '../appointments/appointments.component';
-import { AppAdminRoutingModule } from 'src/app/routes/app-admin-routing.module';
+import { AppAdminRoutingModule } from '../../routes/app-admin-routing.module';
 import { HomeComponent } from '../home/home.component';
 import { UsereditComponent } from '../user-edit/user-edit.component';
 
@@ -23,13 +23,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatStepperModule } from '@angular/material/stepper';
 
-const matmodules=[
+const matmodules = [
   CommonModule,
   AppAdminRoutingModule,
   AppUserRoutingModule,
@@ -50,8 +50,8 @@ const matmodules=[
   MatTableModule,
   MatDatepickerModule,
   MatInputModule,
-  MatStepperModule
-]
+  MatStepperModule,
+];
 
 @NgModule({
   declarations: [
@@ -60,7 +60,7 @@ const matmodules=[
     AllUsersComponent,
     AppointmentsComponent,
     UsereditComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     ...matmodules,
@@ -69,8 +69,6 @@ const matmodules=[
     ReactiveFormsModule,
     AppAdminRoutingModule,
   ],
-  exports:[
-    AdminMainComponent
-  ]
+  exports: [AdminMainComponent],
 })
-export class AdminMainModule { }
+export class AdminMainModule {}
